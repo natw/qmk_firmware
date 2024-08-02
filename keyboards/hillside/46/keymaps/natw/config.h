@@ -9,3 +9,5 @@
 // #define SPLIT_USB_DETECT
 
 #define PERMISSIVE_HOLD
+#define TAPPING_TERM 90
+#define RETRO_TAPPING
