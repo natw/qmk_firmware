@@ -32,8 +32,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                         KC_Y,   KC_U,     KC_I,    KC_O,    KC_P,    KC_EQUAL,
      NW_CTL,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                         KC_H,   KC_J,     KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-     NW_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_ESC,                                    CW_TOGG,  KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                                          KC_LOPT, KC_SPC,  KC_LGUI, LY_SYM,                   LY_SYM, KC_ENTER, NW_SPC, KC_MINUS
+     NW_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    LY_NAV,                                    CW_TOGG,  KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+                                          KC_LOPT, NW_SPC,  KC_LGUI, LY_SYM,                   LY_SYM, KC_ENTER, NW_SPC, KC_MINUS
     ),
 
     [_SYM_NUM] = LAYOUT(
@@ -44,10 +44,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAV] = LAYOUT(
-     KC_ESC,  KC_EXLM,    KC_AT,     KC_LCURL,  KC_RCURL,  KC_PIPE,                                              KC_PGUP, _______, _______, _______,  KC_BRIU, KC_VOLU, 
-     _______, KC_HASH,    KC_DOLLAR, KC_LPAREN, KC_RPAREN, KC_GRAVE,                                             KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_BRID, KC_VOLD, 
-     UG_TOGG, KC_PERCENT, KC_CARET,  KC_LBRC,   KC_RBRC,   _______,  DT_UP  ,                           _______, KC_PGUP, KC_MPRV, PLY_PAU, KC_MNXT,  _______, _______,
-                                                _______,   DT_PRNT,  DT_DOWN, KC_BACKSLASH,    _______, _______, _______, _______
+     KC_ESC,  _______, _______,       _______, _______, _______,                                                         KC_PGUP, _______, _______, _______,  KC_BRIU, KC_VOLU, 
+     _______, _______, LOPT(KC_LEFT), _______, _______, LOPT(KC_RIGHT),                                                  KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_BRID, KC_VOLD, 
+     UG_TOGG, _______, _______,       _______, _______, _______,        DT_UP  ,                                _______, KC_PGDN, KC_MPRV, PLY_PAU, KC_MNXT,  _______, KC_MUTE,
+                                               _______, DT_PRNT,        DT_DOWN, KC_BACKSLASH,    KC_BACKSLASH, _______, _______, _______
     ),
 };
 
