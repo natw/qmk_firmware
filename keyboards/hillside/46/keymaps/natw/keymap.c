@@ -7,6 +7,7 @@ enum layers {
     _QWERTY = 0,
     _SYM_NUM,
     _NAV,
+    _F_COMBO,
 };
 
 #define LY_NAV MO(_NAV)
@@ -26,12 +27,13 @@ enum layers {
 #define KC_HASH S(KC_3)
 #define KC_CARET S(KC_6)
 
+#define NW_F LT(_F_COMBO, KC_F)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                         KC_Y,   KC_U,     KC_I,    KC_O,    KC_P,    KC_EQUAL,
-     NW_CTL,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                                         KC_H,   KC_J,     KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+     NW_CTL,   KC_A,    KC_S,    KC_D,    NW_F,    KC_G,                                                         KC_H,   KC_J,     KC_K,    KC_L,    KC_SCLN, KC_QUOT,
      NW_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    LY_NAV,                                    CW_TOGG,  KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                                           KC_LOPT, KC_SPC,  KC_LGUI, LY_SYM,                   LY_SYM, KC_ENTER, NW_SPC, KC_MINUS
     ),
@@ -48,6 +50,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      _______, _______, LOPT(KC_LEFT), _______, _______, LOPT(KC_RIGHT),                                                  KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_BRID, KC_VOLD, 
      UG_TOGG, _______, _______,       _______, _______, _______,        DT_UP  ,                                _______, KC_PGDN, KC_MPRV, PLY_PAU, KC_MNXT,  _______, KC_MUTE,
                                                _______, DT_PRNT,        DT_DOWN, KC_BACKSLASH,    KC_BACKSLASH, _______, _______, _______
+    ),
+
+    [_F_COMBO] = LAYOUT(
+     _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, KC_0, _______, _______, 
+     _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______, 
+     _______, LCTL(KC_Z), _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______, _______,
+                                         _______, _______, _______, _______,    _______, _______, _______, _______
     ),
 };
 
