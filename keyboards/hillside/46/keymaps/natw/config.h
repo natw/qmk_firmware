@@ -8,7 +8,7 @@
 // For those boands, use usb detection instead.
 // #define SPLIT_USB_DETECT
 
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 230
+#define TAPPING_TERM 250
 #define RETRO_TAPPING
-#define HOLD_ON_OTHER_KEY_PRESS
+#define PERMISSIVE_HOLD_PER_KEY
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY

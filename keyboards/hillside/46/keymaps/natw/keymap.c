@@ -13,7 +13,7 @@ enum layers {
 #define LY_NAV MO(_NAV)
 #define LY_SYM MO(_SYM_NUM)
 
-#define PLY_PAU  KC_MEDIA_PLAY_PAUSE
+#define PLY_PAU KC_MEDIA_PLAY_PAUSE
 
 #define NW_CTL MT(MOD_RCTL, KC_BSPC)
 #define NW_LSFT MT(MOD_LSFT, S(KC_GRAVE))
@@ -67,3 +67,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     _______, _______, _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______, _______,
 //                                         _______, _______, _______, _______,    _______, _______, _______, _______
 //    ),
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case NW_F:
+      return false;
+    default:
+      return true;
+  }
+}
+
+// I like HOLD_ON_OTHER_KEY_PRESS except for home row mods
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case NW_F:
+      return false;
+    default:
+      return true;
+    }
+}
