@@ -28,12 +28,13 @@ enum layers {
 #define KC_CARET S(KC_6)
 
 #define NW_F LT(_F_COMBO, KC_F)
+#define NW_J LT(_F_COMBO, KC_J)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                         KC_Y,   KC_U,     KC_I,    KC_O,    KC_P,    KC_EQUAL,
-     NW_CTL,   KC_A,    KC_S,    KC_D,    NW_F,    KC_G,                                                         KC_H,   KC_J,     KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+     NW_CTL,   KC_A,    KC_S,    KC_D,    NW_F,    KC_G,                                                         KC_H,   NW_J,     KC_K,    KC_L,    KC_SCLN, KC_QUOT,
      NW_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    LY_NAV,                                    CW_TOGG,  KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                                           KC_LOPT, KC_SPC,  KC_LGUI, LY_SYM,                   LY_SYM, KC_ENTER, NW_SPC, KC_MINUS
     ),
@@ -71,6 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case NW_F:
+    case NW_J:
       return false;
     default:
       return true;
@@ -81,6 +83,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case NW_F:
+    case NW_J:
       return false;
     default:
       return true;
