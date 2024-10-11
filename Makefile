@@ -480,3 +480,7 @@ pytest:
 .PHONY: format-and-pytest
 format-and-pytest:
 	RUNTIME=docker ./util/docker_cmd.sh bash -lic "$(CONTAINER_PREAMBLE); qmk format-c --core-only -a && qmk format-python -a && qmk pytest"
+
+.PHONY: nat
+nat:
+	qmk compile -kb hillside/46/0_1 -km natw && qmk flash hillside_46_0_1_natw.hex
