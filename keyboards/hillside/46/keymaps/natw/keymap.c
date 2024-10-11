@@ -8,6 +8,7 @@ enum layers {
     _SYM_NUM,
     _NAV,
     _F_COMBO,
+    _D_COMBO,
 };
 
 #define LY_NAV MO(_NAV)
@@ -29,12 +30,13 @@ enum layers {
 
 #define NW_F LT(_F_COMBO, KC_F)
 #define NW_J LT(_F_COMBO, KC_J)
+#define NW_D LT(_D_COMBO, KC_D)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                                         KC_Y,   KC_U,     KC_I,    KC_O,    KC_P,    KC_EQUAL,
-     NW_CTL,   KC_A,    KC_S,    KC_D,    NW_F,    KC_G,                                                         KC_H,   NW_J,     KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+     NW_CTL,   KC_A,    KC_S,    NW_D,    NW_F,    KC_G,                                                         KC_H,   NW_J,     KC_K,    KC_L,    KC_SCLN, KC_QUOT,
      NW_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    LY_NAV,                                    CW_TOGG,  KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                                           KC_LOPT, KC_SPC,  KC_LGUI, LY_SYM,                   LY_SYM, KC_ENTER, NW_SPC, KC_MINUS
     ),
@@ -54,11 +56,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_F_COMBO] = LAYOUT(
-     _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, KC_0, _______, _______, 
-     _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______, 
-     _______, LCTL(KC_Z), _______, _______, _______, _______, _______,                      _______, _______, _______, _______, _______, _______, _______,
-                                         _______, _______, _______, _______,    _______, _______, _______, _______
+     KC_TILDE, _______,    _______, _______, _______, _______,                                           _______, _______, _______, KC_0,     _______, _______, 
+     _______,  _______,    _______, _______, _______, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______, 
+     _______,  LCTL(KC_Z), _______, _______, _______, _______,    _______,                      _______, _______, _______, _______, _______,  _______, _______,
+                                             _______, LCTL(KC_B), _______, _______,    _______, _______, _______, KC_UNDERSCORE
     ),
+
+    [_D_COMBO] = LAYOUT(
+     _______, _______, _______, _______, _______, _______,                                        KC_CIRC, KC_7, KC_8, KC_9, KC_PAST, KC_DEL,
+     _______, _______, _______, _______, _______, _______,                                        KC_HOME, KC_4, KC_5, KC_6, KC_PPLS, KC_END,
+     _______, _______, _______, _______, _______, _______, _______,                      _______, KC_AMPR, KC_1, KC_2, KC_3, KC_DOT,  KC_RCTL,
+                                         _______, _______, _______, _______,    _______, _______, _______, KC_0
+    ),
+
 };
 
 //  Template:
@@ -73,6 +83,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case NW_F:
     case NW_J:
+    case NW_D:
       return false;
     default:
       return true;
@@ -84,6 +95,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case NW_F:
     case NW_J:
+    case NW_D:
       return false;
     default:
       return true;
