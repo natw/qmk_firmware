@@ -32,6 +32,9 @@ enum layers {
 #define NW_J LT(_F_COMBO, KC_J)
 #define NW_D LT(_D_COMBO, KC_D)
 
+// cmd-shift-4 - macos shortcut for screenshotting an area you highlight
+#define SCRNSHT LCMD(LSFT(KC_4))
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
@@ -44,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SYM_NUM] = LAYOUT(
      KC_ESC,   KC_EXLM,    KC_AT,     KC_LCURL,  KC_RCURL,  KC_PIPE,                                                   KC_CIRC, KC_7, KC_8, KC_9, KC_PAST, KC_DEL,
      _______,  KC_HASH,    KC_DOLLAR, KC_LPAREN, KC_RPAREN, KC_GRAVE,                                                  KC_HOME, KC_4, KC_5, KC_6, KC_PPLS, KC_END,
-     KC_TILDE, KC_PERCENT, KC_CARET,  KC_LBRC,   KC_RBRC,   _______,  _______,                                _______, KC_AMPR, KC_1, KC_2, KC_3, KC_DOT,  KC_RCTL,
+     KC_TILDE, KC_PERCENT, KC_CARET,  KC_LBRC,   KC_RBRC,   _______,  SCRNSHT,                                _______, KC_AMPR, KC_1, KC_2, KC_3, KC_DOT,  KC_RCTL,
                                                  _______,   _______,  _______, KC_BACKSLASH,    KC_BACKSLASH, _______, _______, KC_0 
     ),
 
@@ -56,9 +59,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_F_COMBO] = LAYOUT(
-     KC_TILDE, _______,    _______,       _______, _______, _______,                                           _______, _______, _______, KC_0,     _______, _______, 
-     _______,  _______,    LOPT(KC_LEFT), _______, _______, LOPT(KC_RIGHT),                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______, 
-     _______,  LCTL(KC_Z), _______,       _______, _______, _______,        _______,                      _______, _______, _______, _______, _______,  _______, _______,
+     KC_TILDE, _______,    _______,       _______, _______, _______,                                               _______, _______, _______, KC_0,     _______, BL_UP, 
+     _______,  _______,    LOPT(KC_LEFT), _______, _______, LOPT(KC_RIGHT),                                        KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, BL_DOWN, 
+     _______,  LCTL(KC_Z), _______,       _______, _______, _______,        _______,                      _______, _______, _______, _______, _______,  _______, BL_TOGG,
                                                    _______, LCTL(KC_B),     _______, _______,    _______, _______, _______, KC_UNDERSCORE
     ),
 
@@ -66,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      _______, _______, _______, _______, _______, _______,                                        KC_CIRC, KC_7, KC_8, KC_9, KC_PAST, KC_DEL,
      _______, _______, _______, _______, _______, _______,                                        KC_HOME, KC_4, KC_5, KC_6, KC_PPLS, KC_END,
      _______, _______, _______, _______, _______, _______, _______,                      _______, KC_AMPR, KC_1, KC_2, KC_3, KC_DOT,  KC_RCTL,
-                                         _______, _______, _______, _______,    _______, _______, _______, KC_0
+                                         _______, _______, _______, _______,    BL_TOGG, _______, _______, KC_0
     ),
 
 };
