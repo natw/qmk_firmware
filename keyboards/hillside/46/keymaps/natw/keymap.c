@@ -82,16 +82,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                         _______, _______, _______, _______,    _______, _______, _______, _______
 //    ),
 
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case NW_F:
-    case NW_J:
-    case NW_D:
-      return false;
-    default:
-      return true;
-  }
-}
+// bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+//   switch (keycode) {
+//     case NW_F:
+//     case NW_J:
+//     case NW_D:
+//       return false;
+//     default:
+//       return true;
+//   }
+// }
 
 // I like HOLD_ON_OTHER_KEY_PRESS except for home row mods
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
