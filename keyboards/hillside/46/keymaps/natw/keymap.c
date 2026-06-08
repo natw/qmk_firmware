@@ -121,3 +121,17 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
       return true;
     }
 }
+
+// turn on backlight when using the gaming layer
+layer_state_t layer_state_set_user(layer_state_t state) {
+  switch (get_highest_layer(state)) {
+    case _BG3:
+    case _BG3NUM:
+      rgblight_enable_noeeprom();
+      break;
+    default:
+      rgblight_disable_noeeprom();
+      break;
+  }
+  return state;
+}
